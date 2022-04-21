@@ -14,6 +14,7 @@
 		7FB7218A2811329300299F46 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB721892811329300299F46 /* ViewModel.swift */; };
 		7FB7218C281132AC00299F46 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB7218B281132AC00299F46 /* Model.swift */; };
 		7FB7218E281132E300299F46 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB7218D281132E300299F46 /* Service.swift */; };
+		7FB72190281138DE00299F46 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB7218F281138DE00299F46 /* ButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		7FB721892811329300299F46 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		7FB7218B281132AC00299F46 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		7FB7218D281132E300299F46 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		7FB7218F281138DE00299F46 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 			children = (
 				7FB7217B2811325300299F46 /* LATimeApp.swift */,
 				7FB7217D2811325300299F46 /* ContentView.swift */,
+				7FB7218F281138DE00299F46 /* ButtonView.swift */,
 				7FB721892811329300299F46 /* ViewModel.swift */,
 				7FB7218D281132E300299F46 /* Service.swift */,
 				7FB7218B281132AC00299F46 /* Model.swift */,
@@ -148,6 +151,7 @@
 			files = (
 				7FB7217E2811325300299F46 /* ContentView.swift in Sources */,
 				7FB7218A2811329300299F46 /* ViewModel.swift in Sources */,
+				7FB72190281138DE00299F46 /* ButtonView.swift in Sources */,
 				7FB7218E281132E300299F46 /* Service.swift in Sources */,
 				7FB7217C2811325300299F46 /* LATimeApp.swift in Sources */,
 				7FB7218C281132AC00299F46 /* Model.swift in Sources */,

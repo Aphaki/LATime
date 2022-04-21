@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @StateObject var vm = ViewModel()
+    @EnvironmentObject var vm: ViewModel
     
     var body: some View {
         VStack {
@@ -18,32 +18,7 @@ struct ContentView: View {
             Text(vm.dateStr)
                 .font(.title2)
                 .padding()
-            HStack{
-                Text("Yesterday")
-                    .padding()
-                    .background(.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
-                    .onTapGesture {
-                        vm.moveDay(-1)
-                    }
-                Text("Reload")
-                    .padding()
-                    .background(.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
-                    .onTapGesture {
-                        vm.reload()
-                    }
-                Text("Tomorrow")
-                    .padding()
-                    .background(.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
-                    .onTapGesture {
-                        vm.moveDay(1)
-                    }
-            }
+            ButtonView()
         }
     }
 }
