@@ -8,9 +8,43 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @StateObject var vm = ViewModel()
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            Text("LosAngeles Time")
+                .font(.largeTitle)
+            Text(vm.dateStr)
+                .font(.title2)
+                .padding()
+            HStack{
+                Text("Yesterday")
+                    .padding()
+                    .background(.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+                    .onTapGesture {
+                        vm.moveDay(-1)
+                    }
+                Text("Reload")
+                    .padding()
+                    .background(.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+                    .onTapGesture {
+                        vm.reload()
+                    }
+                Text("Tomorrow")
+                    .padding()
+                    .background(.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+                    .onTapGesture {
+                        vm.moveDay(1)
+                    }
+            }
+        }
     }
 }
 
