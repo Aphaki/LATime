@@ -9,16 +9,11 @@ import Foundation
 import Combine
 
 class ViewModel: ObservableObject {
-    
+    //MARK: - Property
     var service = Service()
-    
     @Published var dateStr = "Loading.."
-    
     var subscription = Set<AnyCancellable>()
-    var isSubscript = true
-    
-    
-    
+    var isSubscribing = true
     let dateFormatter: DateFormatter = {
         let df = DateFormatter()
         df.timeZone = TimeZone(identifier: "America/Los_Angeles")
@@ -26,7 +21,8 @@ class ViewModel: ObservableObject {
         return df
     }()
     
-    func dayToStrAndSubscribe() {
+    // MARK: - Method
+    func dateToStrSubscribe() {
       let cancellable = service.$model
             .sink { completion in
                 print("ViewModel - dateToStr() Subscribe completion : \(completion) ")
@@ -43,15 +39,15 @@ class ViewModel: ObservableObject {
         service.reload()
     }
     func subscribeOnAndOff() {
-        isSubscript.toggle()
-        if !isSubscript {
+        isSubscribing.toggle()
+        if !isSubscribing {
             subscription.removeAll()
         } else {
-            dayToStrAndSubscribe()
+            dateToStrSubscribe()
         }
     }
     init() {
-        dayToStrAndSubscribe()
+        dateToStrSubscribe()
         Timer.scheduledTimer(withTimeInterval: 1, repeats: true) {[weak self] timer in
             self?.reload()
         }
