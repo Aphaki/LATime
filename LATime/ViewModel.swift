@@ -14,7 +14,10 @@ class ViewModel: ObservableObject {
     
     @Published var dateStr = "Loading.."
     
-    var cancellable = Set<AnyCancellable>()
+    var subscription = Set<AnyCancellable>()
+    var isSubscript = true
+    
+    
     
     let dateFormatter: DateFormatter = {
         let df = DateFormatter()
@@ -23,23 +26,34 @@ class ViewModel: ObservableObject {
         return df
     }()
     
-    func dateToStr() {
-        service.$model
+    func dayToStrAndSubscribe() {
+      let cancellable = service.$model
             .sink { completion in
                 print("ViewModel - dateToStr() Subscribe completion : \(completion) ")
             } receiveValue: {[weak self] model in
                 guard let returnedStr = self?.dateFormatter.string(from: model.currentTimeDate) else { return }
                 self?.dateStr = returnedStr
-            }.store(in: &cancellable)
+            }
+        cancellable.store(in: &subscription)
     }
-    func moveDay(_ day: Int) {
-        service.moveDay(day)
-    }
+//    func moveDay(_ day: Int) {
+//        service.moveDay(day)
+//    }
     func reload(){
         service.reload()
     }
+    func subscribeOnAndOff() {
+        isSubscript.toggle()
+        if !isSubscript {
+            subscription.removeAll()
+        } else {
+            dayToStrAndSubscribe()
+        }
+    }
     init() {
-        dateToStr()
-        
+        dayToStrAndSubscribe()
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) {[weak self] timer in
+            self?.reload()
+        }
     }
 }

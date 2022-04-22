@@ -12,30 +12,38 @@ struct ButtonView: View {
     
     var body: some View {
         HStack{
-            Text("Yesterday")
+//            Text("Yesterday")
+//                .padding()
+//                .background(.blue)
+//                .foregroundColor(.white)
+//                .cornerRadius(10)
+//                .onTapGesture {
+//                    vm.moveDay(-1)
+//                }
+//            Text("Reload")
+//                .padding()
+//                .background(.blue)
+//                .foregroundColor(.white)
+//                .cornerRadius(10)
+//                .onTapGesture {
+//                    vm.reload()
+//                }
+            Text("Play/Stop")
                 .padding()
                 .background(.blue)
                 .foregroundColor(.white)
                 .cornerRadius(10)
                 .onTapGesture {
-                    vm.moveDay(-1)
+                    vm.subscribeOnAndOff()
                 }
-            Text("Reload")
-                .padding()
-                .background(.blue)
-                .foregroundColor(.white)
-                .cornerRadius(10)
-                .onTapGesture {
-                    vm.reload()
-                }
-            Text("Tomorrow")
-                .padding()
-                .background(.blue)
-                .foregroundColor(.white)
-                .cornerRadius(10)
-                .onTapGesture {
-                    vm.moveDay(1)
-                }
+//            Text("Tomorrow")
+//                .padding()
+//                .background(.blue)
+//                .foregroundColor(.white)
+//                .cornerRadius(10)
+//                .onTapGesture {
+//                    vm.moveDay(1)
+//                }
         }
     }
 }
